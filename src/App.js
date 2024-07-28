@@ -5,8 +5,7 @@ import SignOut from './signout';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
-import './SignIn.css';
-
+import './App.css'; 
 
 function App() {
   const [user] = useAuthState(auth);
@@ -15,8 +14,8 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <h1>Travel Itinerary</h1>
-          {user ? <SignOut /> : null}
+          <h1 className="App-title">ESCA•LATE Travel Itineraries</h1>
+          {user ? <SignOut /> : <SignIn />}
         </header>
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
