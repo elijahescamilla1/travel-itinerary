@@ -14,11 +14,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>ESCA•LATE Travel Itineraries</h1>
-          {user ? <SignOut /> : null}
         </header>
-        <Routes>
-          <Route path="/" element={user ? <Home /> : <SignIn />} />
-        </Routes>
+        <main className="App-main">
+          {user ? <SignOut /> : <SignIn />}
+          <Routes>
+            <Route path="/" element={user ? <Home /> : <SignIn />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );
