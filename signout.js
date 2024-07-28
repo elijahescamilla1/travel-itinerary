@@ -1,19 +1,12 @@
 import React from 'react';
-import { auth } from './firebase';
+import { signOut } from 'firebase/auth';
+import { auth } from './firebaseConfig';
 
 function SignOut() {
-  const handleSignOut = () => {
-    auth.signOut()
-      .then(() => {
-        console.log('Signed out');
-      })
-      .catch(error => {
-        console.error('Error signing out:', error);
-      });
-  };
-
   return (
-    <button onClick={handleSignOut}>Sign Out</button>
+    auth.currentUser && (
+      <button onClick={() => signOut(auth)}>Sign Out</button>
+    )
   );
 }
 
