@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from './SignIn';
+import SignIn from './signin';
 import SignOut from './SignOut';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Home from './Home';  // Ensure Home component is also properly set
+import Home from './Home'; 
 
 function App() {
   const [user] = useAuthState(auth);
