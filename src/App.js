@@ -5,6 +5,8 @@ import SignOut from './signout';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
+import './SignIn.css';
+
 
 function App() {
   const [user] = useAuthState(auth);
@@ -14,7 +16,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>Travel Itinerary</h1>
-          {user ? <SignOut /> : <SignIn />}
+          {user ? <SignOut /> : null}
         </header>
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
@@ -25,6 +27,3 @@ function App() {
 }
 
 export default App;
-
-
-// Rename
