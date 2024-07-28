@@ -4,7 +4,7 @@ import SignIn from './SignIn';
 import SignOut from './SignOut';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Home from './Home'; // Import your Home component or any other components
+import Home from './Home'; 
 
 function App() {
   const [user] = useAuthState(auth);
