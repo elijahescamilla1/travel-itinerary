@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from './signin';
+import SignIn from './SignIn';
 import SignOut from './SignOut';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Home from './Home'; 
+import Home from './Home';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -18,7 +18,6 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
-          {/* Add more routes here as needed */}
         </Routes>
       </div>
     </Router>
