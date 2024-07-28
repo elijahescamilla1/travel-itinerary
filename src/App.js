@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">ESCA•LATE Travel Itineraries</h1>
-          {user ? <SignOut /> : <SignIn />}
+          {user ? <SignOut /> : null}
         </header>
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
