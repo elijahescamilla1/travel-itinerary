@@ -1,14 +1,16 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import requests
 import psycopg2
 import os
+from dotenv import load_dotenv
 
-app = Flask(__name__)
+load_dotenv()
+
+app = Flask(__name__, static_folder='build', static_url_path='')
 CORS(app)
 
 # Database connection
-DATABASE_URL = os.environ.get('postgresql://postgres.wmgnhlqautdxbwmhaeva:[wyZcit-cepty2-nytruj]@aws-0-us-west-1.pooler.supabase.com:6543/postgres')
+DATABASE_URL = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(DATABASE_URL)
 cur = conn.cursor()
 
@@ -40,9 +42,10 @@ def delete_itinerary(id):
     conn.commit()
     return jsonify({'message': 'Itinerary deleted'})
 
+# Serve React App
+@app.route('/')
+def serve_react_app():
+    return send_from_directory(app.static_folder, 'index.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-from dotenv import load_dotenv
-load_dotenv()
