@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from './SignIn';
+import SignIn from './signin';
 import SignOut from './SignOut';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -25,3 +25,6 @@ function App() {
 }
 
 export default App;
+
+
+// Rename
