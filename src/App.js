@@ -21,19 +21,16 @@ function App() {
             <Link to="/trips">Trips</Link>
             <Link to="/support">Support</Link>
             {!user && (
-              <>
-                <Link to="/signin">Login</Link>
-                <form className="signin-form">
-                  <input type="email" placeholder="Email" />
-                  <input type="password" placeholder="Password" />
-                  <button type="submit">Sign In</button>
-                </form>
-              </>
+              <form className="signin-form">
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button type="submit">Sign In</button>
+              </form>
             )}
             {user && <SignOut />}
           </nav>
         </header>
-        
+
         <div className="search-bar">
           <input type="text" placeholder="Where to?" />
           <input type="date" />
@@ -54,7 +51,7 @@ function App() {
 
         <div className="featured-itineraries">
           <div className="itinerary-card">
-            <img src="https://via.placeholder.com/300" alt="Destination" />
+            <img src="https://tripginny.com/wp-content/uploads/2023/09/California-Route-1-Pacific-Coast-Highway-300x300.jpg" alt="Destination" />
             <h3>La Quinta Inn by Wyndham</h3>
             <p>Costa Mesa / Newport Beach</p>
           </div>
