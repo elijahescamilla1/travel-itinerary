@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignIn from './signin';
+import SignUp from './SignUp';  // Import the SignUp component
 import SignOut from './signout';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -19,6 +20,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
+          <Route path="/signup" element={<SignUp />} />  {/* Add the SignUp route */}
         </Routes>
       </div>
     </Router>
