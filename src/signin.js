@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 
 function SignIn() {
@@ -11,6 +11,7 @@ function SignIn() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      // You can add additional logic here for after login, like redirecting
     } catch (err) {
       setError(err.message);
     }
@@ -25,12 +26,14 @@ function SignIn() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
+          required
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          required
         />
         <button type="submit">Sign In</button>
       </form>
