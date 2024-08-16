@@ -20,13 +20,7 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/trips">Trips</Link>
             <Link to="/support">Support</Link>
-            {!user && (
-              <form className="signin-form">
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button type="submit">Sign In</button>
-              </form>
-            )}
+            {!user && <Link to="/signin">Login</Link>}
             {user && <SignOut />}
           </nav>
         </header>
