@@ -100,3 +100,10 @@ body {
 .itinerary-card p {
   color: #6c757d;
 }
+
+.welcome-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #007bff;
+}

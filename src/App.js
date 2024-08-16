@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './signin';
 import SignUp from './SignUp';
 import SignOut from './signout';
+import ItineraryCard from './ItineraryCard';  // Import ItineraryCard component
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
@@ -17,11 +18,12 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">ESCA•LATE Travel Itineraries</h1>
           <nav className="navigation">
-            <a href="/">Home</a>
-            <a href="/trips">Trips</a>
-            <a href="/support">Support</a>
+            <Link to="/">Home</Link>
+            <Link to="/trips">Trips</Link>
+            <Link to="/support">Support</Link>
+            {!user && <Link to="/signin">Login</Link>}
+            {user && <SignOut />}
           </nav>
-          {user ? <SignOut /> : null}
         </header>
         
         <div className="search-bar">
@@ -36,13 +38,24 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Routes>
 
-        <div className="featured-itineraries">
-          <div className="itinerary-card">
-            <img src="example.jpg" alt="Destination" />
-            <h3>Destination Name</h3>
-            <p>Description</p>
+        {user && (
+          <div className="welcome-message">
+            <h2>Welcome back, Elijah! Where would you like to go next?</h2>
           </div>
-          {/* Add more cards as needed */}
+        )}
+
+        <div className="featured-itineraries">
+          <ItineraryCard
+            image="https://via.placeholder.com/300"
+            title="La Quinta Inn by Wyndham"
+            description="Costa Mesa / Newport Beach"
+          />
+          <ItineraryCard
+            image="https://via.placeholder.com/300"
+            title="Grand Canyon"
+            description="Explore the breathtaking views"
+          />
+          {/* Add more ItineraryCard components as needed */}
         </div>
       </div>
     </Router>
