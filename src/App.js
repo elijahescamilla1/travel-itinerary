@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './signin';
 import SignUp from './SignUp';
 import SignOut from './signout';
-import ItineraryCard from './ItineraryCard';  // Import ItineraryCard component
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
@@ -21,7 +20,16 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/trips">Trips</Link>
             <Link to="/support">Support</Link>
-            {!user && <Link to="/signin">Login</Link>}
+            {!user && (
+              <>
+                <Link to="/signin">Login</Link>
+                <form className="signin-form">
+                  <input type="email" placeholder="Email" />
+                  <input type="password" placeholder="Password" />
+                  <button type="submit">Sign In</button>
+                </form>
+              </>
+            )}
             {user && <SignOut />}
           </nav>
         </header>
@@ -45,17 +53,16 @@ function App() {
         )}
 
         <div className="featured-itineraries">
-          <ItineraryCard
-            image="https://via.placeholder.com/300"
-            title="La Quinta Inn by Wyndham"
-            description="Costa Mesa / Newport Beach"
-          />
-          <ItineraryCard
-            image="https://via.placeholder.com/300"
-            title="Grand Canyon"
-            description="Explore the breathtaking views"
-          />
-          {/* Add more ItineraryCard components as needed */}
+          <div className="itinerary-card">
+            <img src="https://via.placeholder.com/300" alt="Destination" />
+            <h3>La Quinta Inn by Wyndham</h3>
+            <p>Costa Mesa / Newport Beach</p>
+          </div>
+          <div className="itinerary-card">
+            <img src="https://via.placeholder.com/300" alt="Destination" />
+            <h3>Grand Canyon</h3>
+            <p>Explore the breathtaking views</p>
+          </div>
         </div>
       </div>
     </Router>
