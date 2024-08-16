@@ -51,14 +51,14 @@ function App() {
 
         <div className="featured-itineraries">
           <div className="itinerary-card">
-            <img src="https://via.plachttps://media.cntraveler.com/photos/57e2a876fd86274a1db91b62/16:9/w_2560,c_limit/Exterior-LaQuintaResortandClub-CA-CRHotel.jpgeholder.com/300" alt="Destination" />
-            <h3>La Quinta Inn by Wyndham</h3>
-            <p>Costa Mesa / Newport Beach</p>
+            <img src="https://drupal8-prod.visitcalifornia.com/sites/drupal8-prod.visitcalifornia.com/files/2020-06/VC_Experiences_LaQuinta_RF_170007135.jpg" alt="Destination" />
+            <h3>La Quinta</h3>
+            <p>Palm Springs</p>
           </div>
           <div className="itinerary-card">
-            <img src="https://https://drupal8-prod.visitcalifornia.com/sites/drupal8-prod.visitcalifornia.com/files/2020-06/VC_Experiences_LaQuinta_RF_170007135.jpg.placeholder.com/300" alt="Destination" />
-            <h3>Grand Canyon</h3>
-            <p>Explore the breathtaking views</p>
+            <img src="https://media.cntraveler.com/photos/57e2a876fd86274a1db91b62/16:9/w_2560,c_limit/Exterior-LaQuintaResortandClub-CA-CRHotel.jpg" alt="Destination" />
+            <h3>La Quinta Resort & Club</h3>
+            <p>Explore the breathtaking mountain views</p>
           </div>
         </div>
       </div>
