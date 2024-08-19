@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './signin';
 import SignUp from './SignUp';
@@ -8,8 +8,27 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
 import './App.css';
 
+// Import the new components
+import CreateAccountForm from './components/CreateAccountForm';
+import AccountDetails from './components/AccountDetails';
+import EditAccountForm from './components/EditAccountForm';
+import DeleteAccountButton from './components/DeleteAccountButton';
+
 function App() {
   const [user] = useAuthState(auth);
+  const [userData, setUserData] = useState(null);
+
+  const handleAccountCreated = (newUser) => {
+    setUserData(newUser);
+  };
+
+  const handleAccountUpdated = (updatedUser) => {
+    setUserData(updatedUser);
+  };
+
+  const handleAccountDeleted = () => {
+    setUserData(null);  // Clear user data or redirect
+  };
 
   return (
     <Router>
@@ -35,6 +54,25 @@ function App() {
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          {/* Routes for account management */}
+          <Route 
+            path="/create-account" 
+            element={<CreateAccountForm onAccountCreated={handleAccountCreated} />} 
+          />
+          <Route 
+            path="/account" 
+            element={
+              userData ? (
+                <>
+                  <AccountDetails userId={userData.id} />
+                  <EditAccountForm user={userData} onAccountUpdated={handleAccountUpdated} />
+                  <DeleteAccountButton userId={userData.id} onAccountDeleted={handleAccountDeleted} />
+                </>
+              ) : (
+                <SignIn />
+              )
+            } 
+          />
         </Routes>
 
         {user && (
