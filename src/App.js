@@ -39,6 +39,7 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/trips">Trips</Link>
             <Link to="/support">Support</Link>
+            {!user && <Link to="/signup">Sign Up</Link>}
             {!user && <Link to="/signin">Login</Link>}
             {user && <SignOut />}
           </nav>
