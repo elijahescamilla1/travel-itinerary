@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './signin';
-import SignUp from './SignUp'; // This will remain for potential future use
-import SignUpPage from './SignUpPage'; // Import the new signup page component
 import SignOut from './signout';
+import SignUpPage from './SignUpPage'; // Import the new signup page component
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Home from './Home';
