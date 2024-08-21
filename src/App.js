@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './signin';
 import SignUp from './SignUp';
+import SignUpPage from './SignUpPage';
 import SignOut from './signout';
 import { auth } from './firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -54,7 +55,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={user ? <Home /> : <SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUpPage />} />  {/* Updated to use the new signup page */}
           {/* Routes for account management */}
           <Route 
             path="/create-account" 
