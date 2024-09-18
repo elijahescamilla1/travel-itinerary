@@ -78,7 +78,7 @@ function App() {
 
         {user && (
           <div className="welcome-message">
-            <h2>Welcome back, Elijah! Where would you like to go next?</h2>
+            <h2>Welcome back! Where would you like to go next?</h2>
           </div>
         )}
 
